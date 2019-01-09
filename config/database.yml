@@ -21,8 +21,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql-flexible-63859
+  adapter: postgresql
   encoding: unicode
-  database: postgres://xxxxxxx
+  database: postgres://postgresql-flexible-63859
   pool: 5
   timeout: 5000 
