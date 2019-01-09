@@ -22,6 +22,8 @@ test:
 
 production:
   adapter: postgresql
+  username: xuhan963@gmail.com
+  password: 960903Hx#
   encoding: unicode
   database: postgresql-polished-73359
   pool: 5
