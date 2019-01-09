@@ -23,6 +23,6 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: postgres://HEROKU_POSTGRESQL_WHITE_URL
+  database: postgres:HEROKU_POSTGRESQL_WHITE_URL
   pool: 5
   timeout: 5000 
