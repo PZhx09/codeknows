@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  commenter: MyString
   body: MyText
-  article_id: 
+  article_id: 1
+  user_id: 1
+  likes_count: 1
+  bad_content: 1
 
 two:
-  commenter: MyString
   body: MyText
-  article_id: 
+  article_id: 1
+  user_id: 1
+  likes_count: 1
+  bad_content: 1

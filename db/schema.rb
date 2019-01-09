@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,23 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181208170925) do
+ActiveRecord::Schema.define(version: 20190109132840) do
 
   create_table "articles", force: :cascade do |t|
+    t.integer  "article_id"
     t.string   "title"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "slug"
+    t.string   "body"
+    t.integer  "user_id"
+    t.float    "score"
+    t.datetime "featured_at"
+    t.string   "tags"
+    t.integer  "likes_count"
+    t.integer  "views_count"
+    t.integer  "bad_count"
+    t.text     "type"
+    t.datetime "published_at"
+    t.boolean  "spam_detected"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "commenter"
     t.text     "body"
     t.integer  "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "likes_count"
+    t.integer  "bad_content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "comments", ["article_id"], name: "index_comments_on_article_id"
+  create_table "likes", force: :cascade do |t|
+    t.integer  "likable_id"
+    t.integer  "user_id"
+    t.string   "likable_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "account"
+    t.string   "password"
+    t.string   "name"
+    t.string   "avatar"
+    t.string   "title"
+    t.string   "location"
+    t.string   "country"
+    t.string   "city"
+    t.text     "about"
+    t.boolean  "admin"
+    t.boolean  "receive_newsletter"
+    t.text     "email"
+    t.boolean  "bad_user"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
 end
