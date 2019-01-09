@@ -25,6 +25,6 @@ production:
   username: xuhan963@gmail.com
   password: 960903Hx#
   encoding: unicode
-  database: postgresql-polished-73359
+  database: postgres://eiprpurbdthzfd:2666451d2ebc0dc54160d0ce1513fbe570c1e92d161a7b3c9a201eab36bd0086@ec2-54-235-67-106.compute-1.amazonaws.com:5432/d37ukjsu1tac0h
   pool: 5
   timeout: 5000 
