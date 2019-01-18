@@ -21,13 +21,11 @@ test:
   database: db/test.sqlite3
 
 production:
-production:
+  adapter: postgresql
+  encoding: unicode
+  user: dznmlzwdnqdszn
+  password: baff0b91d45b6d6ce2af59ec20901e77789f0586a584b3b0829af2901aba7642
+  port: 5432
   database: postgres://dznmlzwdnqdszn:baff0b91d45b6d6ce2af59ec20901e77789f0586a584b3b0829af2901aba7642@ec2-54-235-67-106.compute-1.amazonaws.com:5432/d9b3dn01gskloe
-  #adapter: postgresql
-  #encoding: unicode
-  #user: dznmlzwdnqdszn
-  #password: baff0b91d45b6d6ce2af59ec20901e77789f0586a584b3b0829af2901aba7642
-  #port: 5432
-  #database: postgres://dznmlzwdnqdszn:baff0b91d45b6d6ce2af59ec20901e77789f0586a584b3b0829af2901aba7642@ec2-54-235-67-106.compute-1.amazonaws.com:5432/d9b3dn01gskloe
-  #pool: 5
-  #timeout: 5000 
+  pool: 5
+  timeout: 5000 
