@@ -23,6 +23,9 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: postgres://eiprpurbdthzfd:2666451d2ebc0dc54160d0ce1513fbe570c1e92d161a7b3c9a201eab36bd0086@ec2-54-235-67-106.compute-1.amazonaws.com:5432/d37ukjsu1tac0h
+  user: dznmlzwdnqdszn
+  password: baff0b91d45b6d6ce2af59ec20901e77789f0586a584b3b0829af2901aba7642
+  port: 5432
+  database: postgres://dznmlzwdnqdszn:baff0b91d45b6d6ce2af59ec20901e77789f0586a584b3b0829af2901aba7642@ec2-54-235-67-106.compute-1.amazonaws.com:5432/d9b3dn01gskloe
   pool: 5
   timeout: 5000 
