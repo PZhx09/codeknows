@@ -1,0 +1,3 @@
+你好 <%= @user.name %>,
+欢迎来到程序之道! 点击下方链接来激活你的账户:
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
