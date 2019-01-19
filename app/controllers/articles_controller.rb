@@ -1,23 +1,47 @@
 class ArticlesController < ApplicationController
     def index
         #这里要根据选择的tags来
-        #翻页等等再做
+        #翻页等等再做，翻页也很简单和tags差不多吧
         if params[:tags]
-            puts "有标签！！！！！！！！！！！！！！！！！！！！"
+            #puts "有标签！！！！！！！！！！！！！！！！！！！！"
             @articles=Article.where(:tags=>params[:tags])
+            @articles=@articles.order(:views_count)
+            @type=params[:tags]
         else
-            puts "无标签！！！！！！！！！！！！！！！！！！！！"
+            #puts "无标签！！！！！！！！！！！！！！！！！！！！"
             #无标签按照热度排名
             @articles=Article.all
-            @articles=@articles.ordder(:views_count)
+            @articles=@articles.order(:views_count)
+            @type="hot"
+            @articles.each do |article|
+                if(article.title.length>60)
+                    article.title=article.title[0,60]+'...more'
+                end
+                    
+                if(article.body.length>60)
+                    article.body=article.body[0,60]+'...more'
+                end
+                
+            end
         end
         
+        #render articles_path
     end
     
     def show
+        @article=Article.find(params[:id])
+        @author=User.find(@article.user_id)
+        #puts @author.email
+        #puts "------------------------------5"
+        #puts @author.name
+        #puts "------------------------------6"
         @article = Article.find(params[:id])
         @article.views_count+=1
         @article.save!
+        
+        @comments=Comment.where(:article_id=>@article.id)
+        @comments=@comments.order(:created_at)
+        
     end
     
     def create

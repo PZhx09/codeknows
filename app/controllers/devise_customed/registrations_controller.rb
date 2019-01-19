@@ -15,12 +15,26 @@ class DeviseCustomed::RegistrationsController < Devise::RegistrationsController
   def create
     # add custom create logic here
     #puts params[:user][:email]
-    #puts params[:user][:name]
-    #puts "---------------------------------------------------"
+    puts params[:user][:name]
+    puts "---------------------------------------------------333"
     #super
-   
+    
     super do |resource|
       resource.name = params[:user][:name]
+    end
+    
+    @thisUser=User.where(:email=>params[:user][:email]).first
+    if @thisUser.nil?
+      puts "错误！！！！！！！！！！！"
+    else
+      #puts @thisUser.name
+      #puts "--------------------------22"
+      #
+      @thisUser.update(name: params[:user][:name])
+      #@thisUser.save!
+      #puts @thisUser.name
+      #puts resource.name
+      #puts "--------------------------11"
     end
   end
  
