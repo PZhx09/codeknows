@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'static_pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   
   post '/signup', to: 'users#create'
   
@@ -22,4 +26,5 @@ Rails.application.routes.draw do
   
   resources :account_activations, only: [:edit]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships,       only: [:create, :destroy]
 end
