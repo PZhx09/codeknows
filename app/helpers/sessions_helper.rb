@@ -40,4 +40,25 @@ module SessionsHelper
   def current_user?(user)
     user == current_user
   end
+  
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+  
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+  
+  def create
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+      log_in user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      redirect_back_or user
+    else
+      flash.now[:danger] = '用户名/密码不正确'
+      render 'new'
+    end
+  end
 end

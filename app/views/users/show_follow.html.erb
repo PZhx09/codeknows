@@ -5,7 +5,7 @@
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
       <span><%= link_to "查看我的主页", @user %></span>
-      <span><b>微博:</b> <%= @user.microposts.count %></span>
+      <span><b>发帖数:</b> <%= @user.microposts.count %></span>
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
