@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
+  程序之道论坛项目
+  《高级软件工程》课程作业
 * Ruby version
-
-* System dependencies
-
-* Configuration
-
+  ruby-2.5.3
 * Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
+  数据库使用pg
 * Deployment instructions
-
+  项目部署在heroku上, 网址为: https://codeknows.herokuapp.com
 * ...
