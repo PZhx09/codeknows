@@ -6,10 +6,33 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-bbbbbbbbbbbbbbbbbb
+<header>
+顶部栏   待写
+  <%= link_to 'Ruby',articles_path(:tags => 'Ruby') %>
+  <%= link_to 'C++',articles_path(:tags => 'C++') %>
+  <%= link_to 'Java',articles_path(:tags => 'Java') %>
+  <%= link_to 'Python',articles_path(:tags => 'Python') %>
+  <%= link_to 'Android',articles_path(:tags => 'Android') %>
+  <%= link_to 'JavaScript',articles_path(:tags => 'JavaScript') %>
+  <%= link_to 'PHP',articles_path(:tags => 'PHP') %>
+  <%= link_to 'Other',articles_path(:tags => 'Other') %>
+  <% if current_user %>
+   
+    <%= link_to('发帖', new_article_path) %> |
+    <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
+    <%= link_to('修改密码', edit_registration_path(:user)) %>|
+    <%= link_to('个人信息', edit_user_path(:id=>current_user.id))%>
+  <% else %>
+    <%= link_to('注册', new_registration_path(:user)) %> |
+    <%= link_to('登录', new_session_path(:user)) %>
+  <% end %>
+</header>
 <body>
 
 <%= yield %>
 
 </body>
+<footer>
+页脚  待写
+</footer
 </html>

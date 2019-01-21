@@ -1,0 +1,13 @@
+<body>
+<%= form_for :user, url: edit_user_path(:id=>current_user.id),:method=>'get' do |f| %>
+<div>昵称:<input name='name' value=<%= @user.name %>> </input></div>
+<div>国家:<input name='country' value=<%= @user.country %>> </input></div>
+<div>城市:<input name='city' value=<%= @user.city %>> </input></div>
+<div>简介:<input name='about' value=<%= @user.about %>> </input></div>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</body>
+

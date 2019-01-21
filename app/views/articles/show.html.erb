@@ -1,0 +1,40 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+ <p>
+  <strong>tags:</strong>
+  <%= @article.tags %>
+ </p>
+ <p>Author<td>
+ <%= link_to @author.name, @author %>  
+ </p>
+<p>
+  <strong>Text:</strong>
+  <%= @article.body %>
+</p>
+
+<p>
+ 
+</p>
+
+<%= form_for :comment, url: comments_path(:article=>@article.id) do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<table>
+  <% @comments.each do |comment| %>
+    <tr>
+    <td><%= link_to User.find(comment.user_id).name, User.find(comment.user_id) %></td>
+      <td><%= comment.body %></td>
+    </tr>
+  <% end %>
+</table>
