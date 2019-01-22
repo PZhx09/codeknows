@@ -16,9 +16,13 @@
   <%= @article.body %>
 </p>
 
+<<<<<<< HEAD
 <p>
    <%= 喜欢, User.find(comment.user_id) %>
 </p>
+=======
+
+>>>>>>> ca23191c70c3aaaf13aaaeaeb411054324cd9352
 
 <%= form_for :comment, url: comments_path(:article=>@article.id) do |f| %>
   <p>
@@ -34,7 +38,7 @@
   <% @comments.each do |comment| %>
     <tr>
     <td><%= link_to User.find(comment.user_id).name, User.find(comment.user_id) %></td>
-      <td><%= comment.body %></td>
+      <td><%= comment.body %> <%= link_to '点赞', new_like_path(:comment_id=>comment.id,:article_id=>@article.id) %></td>
     </tr>
   <% end %>
 </table>
