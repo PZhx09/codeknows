@@ -17,7 +17,7 @@
 </p>
 
 <p>
- 
+   <%= 喜欢, User.find(comment.user_id) %>
 </p>
 
 <%= form_for :comment, url: comments_path(:article=>@article.id) do |f| %>
