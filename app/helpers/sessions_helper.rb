@@ -15,6 +15,10 @@ module SessionsHelper
     end
   end
   
+  def current_micropost
+    @current_micropost ||= Micropost.find_by(id: session[:micropost_id])
+  end
+  
   def logged_in?
     !current_user.nil?
   end
@@ -22,7 +26,9 @@ module SessionsHelper
   def log_out
     forget(current_user)
     session.delete(:user_id)
+    session.delete(:micropost_id)
     @current_user = nil
+    @current_micropost = nil
   end
   
   def remember(user)
@@ -48,6 +54,10 @@ module SessionsHelper
   
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
+  end
+  
+  def store_micropost(micropost)
+    session[:micropost_id] = micropost.id
   end
   
   def create
