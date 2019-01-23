@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-readme codeknows程序之道的说明
-2018.11.20 项目启动 2018.12.11 中期   1.13基础   1.15基础补充
-=======
 # README
 
   程序之道论坛项目
@@ -13,4 +9,4 @@ readme codeknows程序之道的说明
 * Deployment instructions
   项目部署在heroku上, 网址为: https://codeknows.herokuapp.com
 * ...
->>>>>>> production/master
+* 合并完成  数据库无冲突
