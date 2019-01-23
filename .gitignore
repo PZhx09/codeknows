@@ -13,5 +13,16 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
+<<<<<<< HEAD
 !/log/.keep
 /tmp
+=======
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+/node_modules
+/yarn-error.log
+
+.byebug_history
+>>>>>>> production/master

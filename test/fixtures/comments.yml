@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   body: MyText
   article_id: 1
   user_id: 1
@@ -13,3 +14,11 @@ two:
   user_id: 1
   likes_count: 1
   bad_content: 1
+=======
+  content: MyText
+  micropost: one
+
+two:
+  content: MyText
+  micropost: two
+>>>>>>> production/master

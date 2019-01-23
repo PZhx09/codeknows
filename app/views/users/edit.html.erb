@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <body>
 <%= form_for :user, url: edit_user_path(:id=>current_user.id),:method=>'get' do |f| %>
 <div>昵称:<input name='name' value=<%= @user.name %>> </input></div>
@@ -11,3 +12,27 @@
 <% end %>
 </body>
 
+=======
+<% provide(:title, "编辑用户详情") %>
+<h1>更新你的资料</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :name, "用户名" %>
+      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label :email, "邮箱" %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :password, "密码" %>
+      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label :password_confirmation, "确认密码" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.submit "保存修改", class: "btn btn-primary" %>
+    <% end %>
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank">修改</a>
+    </div>
+  </div>
+</div>
+>>>>>>> production/master

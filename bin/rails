@@ -4,6 +4,10 @@ begin
 rescue LoadError => e
   raise unless e.message.include?('spring')
 end
+<<<<<<< HEAD
 APP_PATH = File.expand_path('../../config/application', __FILE__)
+=======
+APP_PATH = File.expand_path('../config/application', __dir__)
+>>>>>>> production/master
 require_relative '../config/boot'
 require 'rails/commands'
