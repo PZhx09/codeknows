@@ -1,12 +1,106 @@
-<head>YEP!!!!</head>
+                <div class="search-area-wrapper">
+                        <div class="search-area container">
+                                <h3 class="search-header">编程有疑问或者是有想要分享的经验?</h3>
+                                <p class="search-tag-line">如果你对编程有什么问题或者有什么想要分享的经验,就使用程序之道</p>
+
+                        </div>
+                </div>
 
 <table>
 
+
+                <!-- Start of Page Container -->
+                <div class="page-container">
+                        <div class="container">
+                                <div class="row">
+
+                                        <!-- start of page content -->
+                                        <%if @type=="Hot"%>
+                                        <div class="span8 page-content">
+
+                                                <!-- Basic Home Page Template -->
+                                                <div class="row separator">
+                                                        <section class="span4 articles-list">
+                                                                <h3><%=@type%> Articles</h3>
+                                                                <ul class="articles">
+                                                                  <% @articles.each do |article| %>
+                                                                  
+                                                                  
+                                                                        <li class="article-entry standard">
+                                                                                <h4><a href='/articles/<%=article.id %>'><%=article.title %></a></h4>
+                                                                                <span class="article-meta"><%=article.created_at %> by <a href="/users/<%=article.user_id %>" ><%=User.find(article.user_id).name %></a></span>
+                                                                                <span class="like-count"> <%= article.views_count%> </span>
+                                                                        </li>
+                                                                
+                                                                     <% end %>
+                                                                </ul>
+                                                        </section>
+
+
+                                                        <section class="span4 articles-list">
+                                                                <h3>Latest Articles</h3>
+                                                                                                                        <ul class="articles">
+                                                                  <% @latestarticles.each do |article| %>
+                                                                  
+                                                                  
+                                                                        <li class="article-entry standard">
+                                                                                <h4><a href='/articles/<%=article.id %>'><%=article.title %></a></h4>
+                                                                                <span class="article-meta"><%=article.created_at %> by <a href="/users/<%=article.user_id %>" ><%=User.find(article.user_id).name %></a></span>
+                                                                                <span class="like-count"> <%= article.views_count%> </span>
+                                                                        </li>
+                                                                
+                                                                     <% end %>
+                                                                </ul>
+                                                        </section>
+                                                </div>
+                                        </div>
+                                        <%else %>
+                                        
+                                        <%end%>
+                                        <!-- end of page content -->
+
+
+                                        <!-- start of sidebar -->
+                                        <aside class="span4 page-sidebar">
+
+                                                <section class="widget">
+                                                        <div class="support-widget">
+                                                                <h3 class="title">Support</h3>
+                                                                <p class="intro">Need more support? If you did not found an answer, contact us for further help.</p>
+                                                        </div>
+                                                </section>
+
+                                                <section class="widget">
+                                                        <div class="quick-links-widget">
+                                                                <h3 class="title">Quick Links</h3>
+                                                                <ul id="menu-quick-links" class="menu clearfix">
+                                                                        <li><a href="/articles">Home</a></li>
+                                                                        <li><%= link_to 'Ruby',articles_path(:tags => 'Ruby') %></li>
+                                                                        <li><%= link_to 'C++',articles_path(:tags => 'C++') %></li>
+                                                                        <li><%= link_to 'Python',articles_path(:tags => 'Python') %></li>
+                                                                </ul>
+                                                        </div>
+                                                </section>
+
+                                                <section class="widget">
+                                                        <h3 class="title">Tags</h3>
+                                                        <div class="tagcloud">
+                                                                <a  href="articles?tags=Ruby" class="btn btn-mini">Ruby</a>
+                                                                <a  href="articles?tags=C++" class="btn btn-mini">C++</a>
+                                                                <a  href="articles?tags=Python" class="btn btn-mini">Python</a>
+                                                                <a  href="articles?tags=Android" class="btn btn-mini">Android</a>
+                                                                <a  href="articles?tags=JavaScript" class="btn btn-mini">JavaScript</a>
+                                                                <a  href="articles?tags=PHP" class="btn btn-mini">PHP</a>
+                                                                <a  href="articles?tags=Other" class="btn btn-mini">Other</a>
+                                                        </div>
+                                                </section>
+
+                                        </aside>
+                                        <!-- end of sidebar -->
+                                </div>
+                        </div>
+                </div>
+                <!-- End of Page Container -->
  
-  <% @articles.each do |article| %>
-    <tr>
-    <td><%= link_to article.title, article_path(article) %></td>
-      <td><%= article.body %></td>
-    </tr>
-  <% end %>
+
 </table>

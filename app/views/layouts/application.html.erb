@@ -5,34 +5,155 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+  <%= stylesheet_link_tag    'main5152.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'bootstrap5152.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'responsive5152.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'custom5152.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'main5152.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'main5152.css', media: 'all', 'data-turbolinks-track' => true %>
+
+
+
 </head>
 <header>
-顶部栏   待写
-  <%= link_to 'Ruby',articles_path(:tags => 'Ruby') %>
-  <%= link_to 'C++',articles_path(:tags => 'C++') %>
-  <%= link_to 'Java',articles_path(:tags => 'Java') %>
-  <%= link_to 'Python',articles_path(:tags => 'Python') %>
-  <%= link_to 'Android',articles_path(:tags => 'Android') %>
-  <%= link_to 'JavaScript',articles_path(:tags => 'JavaScript') %>
-  <%= link_to 'PHP',articles_path(:tags => 'PHP') %>
-  <%= link_to 'Other',articles_path(:tags => 'Other') %>
-  <% if current_user %>
-   
-    <%= link_to('发帖', new_article_path) %> |
-    <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
-    <%= link_to('修改密码', edit_registration_path(:user)) %>|
-    <%= link_to('个人信息', edit_user_path(:id=>current_user.id))%>
-  <% else %>
-    <%= link_to('注册', new_registration_path(:user)) %> |
-    <%= link_to('登录', new_session_path(:user)) %>
-  <% end %>
+
+
+                <div class="header-wrapper">
+                        <header>
+                                <div class="container">
+
+
+                                        <div class="logo-container">
+                                                <!-- Website Logo -->
+                                                <a href="https://rubyguide-pzhx09.c9users.io/"  title="程序之道">
+                                                        <img src="assets/logo.JPG" alt="程序之道">
+                                                </a>
+                                                <span class="tag-line">属于程序员的轻量化论坛</span>
+                                        </div>
+
+
+                                        <!-- Start of Main Navigation -->
+                                        <nav class="main-nav">
+                                                <div class="menu-top-menu-container">
+                                                        <ul id="menu-top-menu" class="clearfix">
+                                                                <li class="current-menu-item"><%= link_to 'Ruby',articles_path(:tags => 'Ruby') %></li>
+                                                                <li><%= link_to 'C++',articles_path(:tags => 'C++') %></li>
+                                                                <li><%= link_to 'Java',articles_path(:tags => 'Java') %></li>
+                                                                <li><%= link_to 'Python',articles_path(:tags => 'Python') %></li>
+                                                                <li><%= link_to 'Android',articles_path(:tags => 'Android') %></li>
+                                                                <li><%= link_to 'JavaScript',articles_path(:tags => 'JavaScript') %></li>
+                                                                <li><%= link_to 'PHP',articles_path(:tags => 'PHP') %></li>
+                                                                <li><%= link_to 'Other',articles_path(:tags => 'Other') %></li>
+ 
+                                                                <li><a href="faq.html">FAQs</a></li>
+                                                                <li><a href="contact.html">联系我们</a></li>
+                                                                
+                                                                <% if current_user %>
+                                                                 <%= link_to('发帖', new_article_path,:class=>'btn') %> 
+                                                                 <%= link_to('登出', destroy_user_session_path, :method => :delete,:class=>'btn') %> |
+                                                                 <%= link_to(current_user.name, edit_user_path(:id=>current_user.id),:class=>'btn')%>
+                                                               <% else %>
+                                                                 <%= link_to('注册', new_registration_path(:user),:class=>'btn') %> |
+                                                                 <%= link_to('登录', new_session_path(:user),:class=>'btn') %>
+                                                               <% end %>
+                                                               
+                                                        </ul>
+                                                        
+                                                </div>
+                                        </nav>
+
+
+                                </div>
+                        </header>
+                </div>
+  
+  
 </header>
 <body>
 
 <%= yield %>
 
 </body>
-<footer>
-页脚  待写
-</footer
+<footer id="footer-wrapper">
+                        <div id="footer" class="footer-bottom-wrapper">
+                                <div class="row">
+
+                                        <div class="span3">
+                                                <section class="widget">
+                                                        <h3 class="title">随便编点啥</h3>
+                                                        <div class="textwidget">
+                                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                                                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                                                        </div>
+                                                </section>
+                                        </div>
+
+                                        <div class="span3">
+                                                <section class="widget"><h3 class="title">类别</h3>
+                                                        <ul>
+                                                                <li><%= link_to 'Ruby',articles_path(:tags => 'Ruby') %></li>
+                                                                <li><%= link_to 'C++',articles_path(:tags => 'C++') %></li>
+                                                                <li><%= link_to 'Java',articles_path(:tags => 'Java') %></li>
+                                                                <li><%= link_to 'Python',articles_path(:tags => 'Python') %></li>
+                                                                <li><%= link_to 'Android',articles_path(:tags => 'Android') %></li>
+                                                                <li><%= link_to 'JavaScript',articles_path(:tags => 'JavaScript') %></li>
+                                                                <li><%= link_to 'PHP',articles_path(:tags => 'PHP') %></li>
+                                                                <li><%= link_to 'Other',articles_path(:tags => 'Other') %></li>
+                                                        </ul>
+                                                </section>
+                                        </div>
+
+                                        <div class="span3">
+                                                <section class="widget">
+                                                        <h3 class="title">帮助</h3>
+                                                        <div id="twitter_update_list">
+                                                                <ul>                                                                
+                                                                <li><a href="faq.html">FAQs</a></li>
+                                                                <li><a href="contact.html">联系我们</a></li>
+                                                                </ul>
+                                                        </div>
+                                                       
+                                                </section>
+                                        </div>
+
+                                        <div class="span3">
+                                                <section class="widget">
+                                                        <h3 class="title">再编几句吧</h3>
+                                                </section>
+                                        </div>
+
+                                </div>
+                        </div>
+                        <!-- end of #footer -->
+
+                        <!-- Footer Bottom -->
+                        <div id="footer-bottom-wrapper">
+                                <div id="footer-bottom" class="container">
+                                        <div class="row">
+                                                <div class="span6">
+                                                        <p class="copyright">
+                                                                Copyright © 2019. All Rights Reserved 高级软件工程大作业
+                                                        </p>
+                                                </div>
+                                                <div class="span6">
+                                                        <!-- Social Navigation -->
+                                                        <ul class="social-nav clearfix">
+                                                                <li class="linkedin"><a target="_blank" href="#"></a></li>
+                                                                <li class="stumble"><a target="_blank" href="#"></a></li>
+                                                                <li class="google"><a target="_blank" href="#"></a></li>
+                                                                <li class="deviantart"><a target="_blank" href="#"></a></li>
+                                                                <li class="flickr"><a target="_blank" href="#"></a></li>
+                                                                <li class="skype"><a target="_blank" href="skype:#?call"></a></li>
+                                                                <li class="rss"><a target="_blank" href="#"></a></li>
+                                                                <li class="twitter"><a target="_blank" href="#"></a></li>
+                                                                <li class="facebook"><a target="_blank" href="#"></a></li>
+                                                        </ul>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- End of Footer Bottom -->
+
+                </footer>
 </html>

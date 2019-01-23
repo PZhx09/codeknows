@@ -16,13 +16,7 @@
   <%= @article.body %>
 </p>
 
-<<<<<<< HEAD
-<p>
-   <%= 喜欢, User.find(comment.user_id) %>
-</p>
-=======
 
->>>>>>> ca23191c70c3aaaf13aaaeaeb411054324cd9352
 
 <%= form_for :comment, url: comments_path(:article=>@article.id) do |f| %>
   <p>
