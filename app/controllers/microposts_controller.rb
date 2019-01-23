@@ -3,8 +3,21 @@ class MicropostsController < ApplicationController
   before_action :correct_user,   only: :destroy
   def create
     @micropost = current_user.microposts.build(micropost_params)
+    # @micropost.tags = TextRank.extract_keywords(@micropost.content)
+    # algor = RMMSeg::Algorithm.new(@micropost.content)
+    # loop do
+    #   tok = algor.next_token
+    #   break if tok.nil?
+    #   # puts "#{tok.text} [#{tok.start}..#{tok.end}]"
+    #   @micropost.tags = tok.text
+    # end
+    content = rm_stopwords @micropost.content
+    keyword = JiebaRb::Keyword.new
+    keywords_weights = keyword.extract content, 2
+    keywords = keywords_weights.map!{|item| item.first}
+    @micropost.tags = keywords.join(" | ")
     if @micropost.save
-      flash[:success] = "帖子发布成功!"
+      flash.now[:success] = "帖子发布成功!"
       redirect_to root_url
     else
       @feed_items = []
