@@ -22,7 +22,11 @@ span.tag-line {
 }
 
 .search-area-wrapper {
+<<<<<<< HEAD
   background-image: url("red-skin/red-bg.jpg");
+=======
+  background-image: url("red-bg.jpg");
+>>>>>>> basic
   background-color: #86484f;
 }
 .search-area-wrapper form.search-form input.search-btn {

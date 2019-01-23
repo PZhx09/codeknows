@@ -5,14 +5,14 @@ class ArticlesController < ApplicationController
         if params[:tags]
             #puts "有标签！！！！！！！！！！！！！！！！！！！！"
             @articles=Article.where(:tags=>params[:tags])
-            @articles=@articles.order(:views_count)
+            @articles=@articles.order("views_count DESC")
             @type=params[:tags]
         else
             #puts "无标签！！！！！！！！！！！！！！！！！！！！"
             #无标签按照热度排名
             @articles=Article.all
-            @articles=@articles.order(:views_count)
-            @type="hot"
+            @articles=@articles.order("views_count DESC")
+            @type="Hot"
             @articles.each do |article|
                 if(article.title.length>60)
                     article.title=article.title[0,60]+'...more'
@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
                 end
                 
             end
+            @latestarticles=@articles.order("created_at DESC")
         end
         
         #render articles_path

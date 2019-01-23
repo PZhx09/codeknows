@@ -6,6 +6,10 @@
 * Available tags for templates:
 * title, link, date_taken, description, published, author, author_id, tags, image*
 */
+<<<<<<< HEAD
+=======
+//= require_tree .
+>>>>>>> basic
 (function($) {
 	$.fn.jflickrfeed = function(settings, callback) {
 		settings = $.extend(true, {
