@@ -11,13 +11,9 @@ class MicropostsController < ApplicationController
     #   # puts "#{tok.text} [#{tok.start}..#{tok.end}]"
     #   @micropost.tags = tok.text
     # end
-    content = rm_stopwords @micropost.content
-    keyword = JiebaRb::Keyword.new
-    keywords_weights = keyword.extract content, 2
-    keywords = keywords_weights.map!{|item| item.first}
-    @micropost.tags = keywords.join(" | ")
+    @micropost.tags = extract_tags @micropost
     if @micropost.save
-      flash.now[:success] = "帖子发布成功!"
+      flash[:success] = "帖子发布成功!"
       redirect_to root_url
     else
       @feed_items = []
